@@ -39,15 +39,19 @@ const  App = ()=> {
       }
       
       
-      setState({...state,count:dots,value:''})
+      setState({ ...state, count: dots})
+      setTimeout(() => {
+        setState({ ...state, count:0, value:''})
+      }, 4000);
     }
 
   }
   return (
     <div className="App">
+      <span className="span">یه متن،جمله یا کلمه بنویس تا بهت بگم چنتا نقطه داره</span>
       <input type="text" className="input" value={state.value} onChange={handleValue}/>
-      <button onClick={handleNote} className="btn">count</button>
-      <span className="span">{state.count}</span>
+      <button onClick={handleNote} className="btn">بشمار</button>
+      <span className="span">تعداد نقطه ها:{state.count}</span>
     </div>
   );
 }
